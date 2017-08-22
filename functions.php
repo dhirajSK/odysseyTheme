@@ -187,11 +187,15 @@ if ( ! function_exists( 'odyssey_excerpt_more' ) ) {
 			return $more;
 		}
 		global $post;
-		return '&hellip; <a href="' . get_the_permalink() . '" title="' . __( 'Read More', 'odyssey' ) . '" class="read-more">' . __( 'Continue reading', 'odyssey' ) . '<span class="meta-nav">&rarr;</span></a>';
+		return '&hellip; <a href="' . get_the_permalink() . '" title="' . __( 'Read More', 'odyssey' ) . '" class="read-more">' . __( 'Read More', 'odyssey' ) . '</a>';
 	}
 	add_filter( 'excerpt_more', 'odyssey_excerpt_more' );
 }
 
+function odyssey_excerpt_length(){
+	return 20;
+}
+add_filter('excerpt_length','odyssey_excerpt_length');
 /**
  * Function for rendering site heading.
  */
