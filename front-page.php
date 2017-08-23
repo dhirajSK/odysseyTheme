@@ -10,7 +10,8 @@
 <body <?php body_class(); ?>>
 <div id="page" class="site">
 	<header id="masthead" class="site-header intro-header" role="banner" >
-		<nav class="navbar navbar-inverse menu-bar navbar-fixed-top">
+		<div class="overlay">
+			<nav class="navbar navbar-inverse menu-bar navbar-fixed-top">
   			<div class="container-fluid">
 	    		<div class="navbar-header">
 			      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -38,11 +39,12 @@
             </div>
         </div>
 
+		</div>
 	</header><!-- #masthead -->
 <div id="content" class="site-content container">
 	<center><img src="<?php echo get_stylesheet_directory_uri().'/img/arrow.png'?>" class="arrow-down"></center>
 	<section class="why-us">
-		<h1 class="section-heading">WHY US</h1>
+		<h1 class="section-heading">ABOUT US</h1>
 		<br>
 		<p> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
 	</section>
@@ -60,9 +62,9 @@
                     $loop = new WP_Query($args);
                     if($loop->have_posts()):
                       while ($loop->have_posts()): $loop->the_post();?>
-                  	<div class="col-md-4 col-lg-4">
+                  	<div class="col-md-4 col-sm-6">
 	            		<div class="card card<?php echo $i?>">
-	                     <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+	                     <h2 class="blog-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 	                     <hr>
 	                      <?php the_excerpt();
 	                      ?>
@@ -78,7 +80,58 @@
 	</section>	
 	<section class="team">
 		<h1 class="section-heading">TEAM</h1>
-	</section>		
+		<br>
+		<div class="row">
+				<?php
+				// Create the WP_User_Query object
+				$roles = array('Administrator', 'Contributor','Editor','Subscriber','Author');
+				foreach ($roles as $role)
+				{
+				$wp_user_query = new WP_User_Query(array( 'role' => $role,'fields' => 'all_with_meta'));
+
+				// Get the results
+				$authors = $wp_user_query->get_results();
+				// Check for results
+				if (!empty($authors)) {
+				    // loop through each author
+				    foreach ($authors as $author)
+				    {
+				    	?>
+				    	<div class="col-md-3 col-sm-4 m-member-data">
+				    	<?php
+				        // get all the user's date_add()
+				        $author_info = get_userdata($author->ID);
+				        ?>
+				        <center><div class="member-image"><?php echo get_avatar($author->ID, 220 );?></div></center>
+				        <br>
+				        <?php
+				        echo '<h3>'.$author_info->first_name . ' ' . $author_info->last_name.'</h3>';
+				        echo '<p>'.$author_info->description.'</p>';
+						?>
+						</div>
+					<?php
+				    }
+				}
+			}
+				?>
+			</div>
+	</section>	
+</div>	
 <?php
 get_footer();
 ?>
+<script>
+        jQuery(document).ready(function(){
+            jQuery(window).scroll(function() { 
+                if (jQuery(document).scrollTop() > 600) { 
+                    jQuery(".navbar-fixed-top").css("background-color", "#f8f8f8");
+                    jQuery(".site-title a").css("color","black");
+                    jQuery(".menu-bar.navbar-inverse li a").css("color","black");
+                } else {
+                jQuery(".navbar-fixed-top").css("background-color", "transparent");
+                jQuery(".site-title a").css("color","white");
+                jQuery(".menu-bar.navbar-inverse li a").css("color","white");
+            }
+            });
+        });
+    </script>

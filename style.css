@@ -399,9 +399,13 @@ div{
 }
 .menu-bar.navbar-inverse li a{
 	color: white;
+	transition:0.7s;
 }
 .site-title a{
 	font-size: 0.8em;
+	transition:0.7s;
+	margin-top: -8px;
+
 }
 .arrow-down{
 	position:relative;
@@ -441,4 +445,56 @@ div{
 }
 .why-us{
 	padding-bottom: 50px; 
+}
+.header-bar.navbar-inverse{
+	background-color:#f8f8f8;
+	border:none;
+}
+.header-bar.navbar-inverse li a{
+	color: black;
+}
+.blog-title,h2,h3,h4{
+	font-family: 'Ubuntu', sans-serif;
+}
+p{
+	font-size: 0.9em;
+}
+.overlay{
+	height: 100vh;
+	background-image: url("img/head-overlay.png");
+}
+.m-member-data{
+	text-align: center;
+}
+.m-member-data img{
+	border-radius: 100%;
+}
+.footer{
+	background-color: rgba(128, 128, 128, 0.69);
+	margin-top: 30px;
+}
+.row{
+	width: 100%;
+}
+.map{
+	float: right;
+	margin-top: 12px;
+}
+@media only screen and (max-width: 767px) {
+    .header-bar.navbar-inverse,.menu-bar.navbar-inverse{
+    	position: relative;
+
+    }
+    .header-bar.navbar-inverse,.menu-bar.navbar-inverse li{
+    	text-align: center;
+    }
+   .intro-header .site-heading h1{
+	font-size: 2.8em;
+	}
+	#header-text .site-heading .subheading{
+	font-size:1em;
+	}
+	.arrow-down{
+		top: -120px;
+	}
 }

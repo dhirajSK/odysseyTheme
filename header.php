@@ -21,7 +21,7 @@
 <body <?php body_class(); ?>>
 <div id="page" class="site">
 	<header id="" class="site-header intro-header" role="banner" >
-		<nav class="navbar navbar-inverse menu-bar">
+		<nav class="navbar navbar-inverse header-bar navbar-fixed-top">
 		  <div class="container-fluid">
 		    <div class="navbar-header">
 				<div class="navbar-header">
