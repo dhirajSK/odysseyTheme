@@ -423,9 +423,12 @@ div{
 	-webkit-transition: 0.3s;
 	transition: 0.3s;
 	cursor: pointer;
-	padding:10px 10px 10px 20px;
+	padding:5px 10px 10px 20px;
 	margin-top: 30px;
 	border-top: 40px solid rgba(255, 255, 0, 0.63);
+	border-bottom-right-radius: 5px;
+	border-bottom-left-radius: 5px;
+
 
 }
 .card2{
@@ -455,6 +458,7 @@ div{
 }
 .blog-title,h2,h3,h4{
 	font-family: 'Ubuntu', sans-serif;
+	font-size: 1.2em;
 }
 p{
 	font-size: 0.9em;
@@ -463,14 +467,10 @@ p{
 	height: 100vh;
 	background-image: url("img/head-overlay.png");
 }
-.m-member-data{
-	text-align: center;
-}
-.m-member-data img{
-	border-radius: 100%;
-}
+
+/* footer */
 .footer{
-	background-color: rgba(128, 128, 128, 0.69);
+	background-color: rgb(60, 59, 59);
 	margin-top: 30px;
 }
 .row{
@@ -480,6 +480,53 @@ p{
 	float: right;
 	margin-top: 12px;
 }
+
+
+
+/* team */
+
+.col-xs-15,
+.col-sm-15,
+.col-md-15,
+.col-lg-15 {
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+.col-xs-15 {
+    width: 20%;
+    float: left;
+}
+.m-member-data{
+	text-align: center;
+}
+.member-image img{
+	border-radius: 100px;
+}
+
+@media (min-width: 768px) {
+.col-sm-15 {
+        width: 20%;
+        float: left;
+    }
+}
+
+@media (min-width: 992px) {
+    .col-md-15 {
+        width: 20%;
+        float: left;
+    }
+}
+
+@media (min-width: 1200px) {
+    .col-lg-15 {
+        width: 20%;
+        float: left;
+    }
+}
+
+
 @media only screen and (max-width: 767px) {
     .header-bar.navbar-inverse,.menu-bar.navbar-inverse{
     	position: relative;

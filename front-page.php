@@ -96,8 +96,8 @@
 				    // loop through each author
 				    foreach ($authors as $author)
 				    {
-				    	?>
-				    	<div class="col-md-3 col-sm-4 m-member-data">
+				    	?>		
+				    	<div class="col-md-15 col-md-2 col-sm-4 col-xs-6 m-member-data">
 				    	<?php
 				        // get all the user's date_add()
 				        $author_info = get_userdata($author->ID);
