@@ -22,22 +22,25 @@
 <div id="page" class="site">
 	<header id="" class="site-header intro-header" role="banner" >
 		<nav class="navbar navbar-inverse header-bar navbar-fixed-top">
-		  <div class="container-fluid">
-		    <div class="navbar-header">
-				<div class="navbar-header">
+  			<div class="container-fluid">
+	    		<div class="navbar-header">
+			      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span> 
+			      </button>
 			      <h1 class="site-title"><a class="navbar-brand" href="#"  style="color:white;">ODYSSEY</a></h1>
-			    </div>		
-		    </div>
-		    <div>
-		      <ul class="nav navbar-nav navbar-right">
-		        <li><a href="#">Home</a></li>
-		        <li><a href="#">Blogs</a></li>
-		        <li><a href="#">Team</a></li> 
-		        <li><a href="#">Contacts</a></li> 
-		      </ul>
-		    </div>
-		  </div>
-		</nav>
+			    </div>
+	    <div class="collapse navbar-collapse" id="myNavbar">
+			      <ul class="nav navbar-nav navbar-right">
+			        <li><a href="#">Home</a></li>
+			        <li><a href="#">Blogs</a></li>
+			        <li><a href="#">Team</a></li> 
+			        <li><a href="#">Contacts</a></li> 
+			      </ul>
+		</div>
+  	</div>
+</nav>
 	</header><!-- #masthead -->
 
 	<div id="content" class="site-content container">

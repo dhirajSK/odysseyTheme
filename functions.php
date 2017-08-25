@@ -203,7 +203,15 @@ function odyssey_site_heading() {
 	global $post;
 	$headline = '';
 	if ( is_home() ){
-		echo '<h1 class="headline-home">A LEADER</h1>';
+		echo '<h1 class="heading-1">
+    		<span id="item1" class="title">A LEADER</span>
+	</h1>
+	<h1 class="heading-2">
+	    <span id="item2">A SCIENTIST</span>
+	</h1>
+	<h1 class="heading-3">
+	    <span id="item3">AN ENTREPRENEUR</span>
+	  </h1>';
 	} else if ( is_single() || is_page() ) {
 		the_title( '<h1 class="headline-single">', '</h1>' );
 	} else if ( is_archive() ) {

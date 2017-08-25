@@ -24,14 +24,14 @@
 	    <div class="collapse navbar-collapse" id="myNavbar">
 			      <ul class="nav navbar-nav navbar-right">
 			        <li><a href="#">Home</a></li>
-			        <li><a href="#">Blogs</a></li>
-			        <li><a href="#">Team</a></li> 
-			        <li><a href="#">Contacts</a></li> 
+			        <li><a href="#blogs">Blogs</a></li>
+			        <li><a href="#team">Team</a></li> 
+			        <li><a href="#contact">Contacts</a></li> 
 			      </ul>
 		</div>
   	</div>
 </nav>
-		<div class="container">
+		<div class="container hero-container">
             <div class="row">
                 <div id="header-text" class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <?php odyssey_header_title();?>
@@ -42,8 +42,8 @@
 		</div>
 	</header><!-- #masthead -->
 <div id="content" class="site-content container">
-	<center><img src="<?php echo get_stylesheet_directory_uri().'/img/arrow.png'?>" class="arrow-down"></center>
-	<section class="why-us">
+	<center><img src="<?php echo get_stylesheet_directory_uri().'/img/arrow.png'?>" class="arrow-down" id="ex-more"></center>
+	<section class="about-us">
 		<h1 class="section-heading">ABOUT US</h1>
 		<br>
 		<p> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
@@ -53,7 +53,7 @@
 		
 	</section>
 <div class="site-content container">
-	<section class="blogs">
+	<section class="blogs" id="blogs">
       	<h1 class="section-heading">BLOGS</h1>
       	<div class="row">
                 <?php 
@@ -78,7 +78,8 @@
                 ?>
         </div>
 	</section>	
-	<section class="team">
+	<section class="team" id="team">
+		<br>
 		<h1 class="section-heading">TEAM</h1>
 		<br>
 		<div class="row">
@@ -124,7 +125,7 @@ get_footer();
         jQuery(document).ready(function(){
             jQuery(window).scroll(function() { 
                 if (jQuery(document).scrollTop() > 600) { 
-                    jQuery(".navbar-fixed-top").css("background-color", "#f8f8f8");
+                    jQuery(".navbar-fixed-top").css({"background-color":"#f8f8f8","opacity":"0.9"});
                     jQuery(".site-title a").css("color","black");
                     jQuery(".menu-bar.navbar-inverse li a").css("color","black");
                 } else {
@@ -133,5 +134,21 @@ get_footer();
                 jQuery(".menu-bar.navbar-inverse li a").css("color","white");
             }
             });
+
+            jQuery('#ex-more').click(function() {
+		                jQuery('html, body').animate({
+		                scrollTop: jQuery(".about-us").offset().top-60
+		            }, 700);
+    		});
         });
+        setInterval(function(){
+  jQuery('#item1').toggleClass('title');
+},3800);
+setInterval(function(){
+  jQuery('#item2').toggleClass('title1');
+},3800);
+setInterval(function(){
+  jQuery('#item3').toggleClass('title2');
+},3800);
+
     </script>

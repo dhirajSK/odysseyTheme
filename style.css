@@ -375,22 +375,25 @@ div{
 	font-family: 'Ubuntu', sans-serif;
 }
 .intro-header .site-heading h1{
-	font-size: 4em;
+	font-size: 3.5em;
 }
 #header-text .site-heading .subheading{
-	font-size:1.4em;
+	font-size:1.5em;
 }
 .head-overlay{
 	height: 100vh;
 }
-.down-arrow{
-	margin-top: 8em;
+.arrow-down{
+	cursor: pointer;
 }
 .hero-section{
 	margin-top: 6em;
 }
 #masthead{
 	height: 100vh;
+}
+.hero-container.container{
+
 }
 .menu-bar.navbar-inverse{
 	background:transparent;
@@ -446,8 +449,11 @@ div{
     background-repeat: no-repeat;
     background-size: cover;
 }
-.why-us{
+.about-us{
 	padding-bottom: 50px; 
+}
+.about-us .section-heading{
+	margin-top: 0px;
 }
 .header-bar.navbar-inverse{
 	background-color:#f8f8f8;
@@ -467,22 +473,34 @@ p{
 	height: 100vh;
 	background-image: url("img/head-overlay.png");
 }
+.blog-cover img{
+	width: 100%;
+	height: 350px;
+}
 
 /* footer */
 .footer{
 	background-color: rgb(60, 59, 59);
 	margin-top: 30px;
+	padding: 20px;
 }
 .row{
 	width: 100%;
+	margin-left: 0px;
 }
 .map{
-	float: right;
 	margin-top: 12px;
+	float: right;
 }
-
-
-
+.wpcf7 input[type="email"]{
+	width: 70%;
+	padding-left: 7px;
+}
+.wpcf7 textarea{
+	height: 180px;
+	width: 70%;
+	padding-left: 7px;
+}
 /* team */
 
 .col-xs-15,
@@ -500,9 +518,11 @@ p{
 }
 .m-member-data{
 	text-align: center;
+	padding-bottom: 20px;
 }
 .member-image img{
 	border-radius: 100px;
+	margin-top: 10px;
 }
 
 @media (min-width: 768px) {
@@ -536,12 +556,116 @@ p{
     	text-align: center;
     }
    .intro-header .site-heading h1{
-	font-size: 2.8em;
+	font-size: 1.8em;
 	}
 	#header-text .site-heading .subheading{
 	font-size:1em;
 	}
 	.arrow-down{
-		top: -120px;
+		top: -150px;
 	}
+	.footer{
+		text-align: center;
+	}
+	.map{
+		float: none;
+	}
+
+	.intro-header .site-heading .subheading, .intro-header .page-heading .subheading{
+		margin-top: 100px !important;
+	}
+}
+@media screen and (max-width: 992px) and (min-width: 767px){
+	.intro-header .site-heading h1{
+		font-size: 3em;
+	}
+	#header-text .site-heading .subheading{
+		font-size:1.2em;
+	}
+}
+@media only screen and (max-width: 480px) {
+	.map{
+		width: 250px;
+	}
+}
+
+
+/* Animation heading */
+.heading-1, .heading-2 ,.heading-3{
+  font-size: 75px;
+  text-transform: uppercase;
+  text-align: center;
+}
+#item1,#item2,#item3{
+  opacity:0;
+}
+.title,.title1,.title2{
+  width: 100%;
+  float: left;
+  color: #ffffff;
+  -webkit-clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 80%);
+  clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 80%);
+  transform: translateY(-50px);
+  opacity: 1;
+  animation-name: titleAnimation;
+  animation-timing-function: ease;
+  animation-duration: 2.5s;
+/*   animation-iteration-count:infinite; */
+}
+.title{
+  animation-delay: 0.6s;
+  -webkit-animation-fill-mode: forwards;
+}
+.heading-1{
+  top: 50;
+  position: absolute;
+}
+.heading-2 {
+  top: 50;
+  position: absolute;
+}
+.hero-container{
+	width: 100%;
+}
+.heading-3 {
+  top: 50;
+  position: absolute;
+}
+.intro-header .site-heading .subheading, .intro-header .page-heading .subheading{
+	margin-top: 120px;
+}
+.site-heading.post-34.post.type-post.status-publish.format-standard.has-post-thumbnail.hentry.category-uncategorized{
+	    display: flex;
+    justify-content: center;
+}
+.title2{
+  animation-delay: 2.5s;
+  -webkit-animation-fill-mode: forwards;
+  transition:5s;
+}
+@keyframes titleAnimation {
+  0% {
+    transform: translateY(-50px);
+    opacity: 0;
+    -webkit-clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 80%);
+    clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 80%);
+  }
+  20% {
+    transform: translateY(0);
+    opacity: 1;
+    -webkit-clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 15%);
+    clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 15%);
+  }
+  80% {
+    transform: translateY(0);
+    opacity: 1;
+    -webkit-clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 15%);
+    clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 15%);
+  }
+  100% {
+    transform: translateY(50px);
+    opacity: 0;
+    -webkit-clip-path: polygon(100% 0, 100% 0%, 0 100%, 0 100%);
+    clip-path: polygon(100% 0, 100% 0%, 0 100%, 0 100%);
+  }
 }

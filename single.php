@@ -8,8 +8,18 @@
  */
 
 get_header(); ?>
-
-	<div id="primary" class="content-area">
+</div>
+	<div class="blog-cover"><?php if(has_post_thumbnail()){ ?>
+		      <?php 
+			      the_post_thumbnail('cover-thumb',['class'=>'img-responsive'] );
+		      
+		      }
+		      else{
+		      }
+		      ?>
+			</div>
+			<br>
+	<div id="primary" class="content-area container">
 		<main id="main" class="site-main col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1" role="main">
 		
 		<?php
@@ -45,6 +55,7 @@ get_header(); ?>
 		<div id="sidebar" class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 			<?php get_sidebar(); ?>
 		</div>
-	</div><!-- #primary -->
+	</div>
+</div><!-- #primary -->
 <?php
 get_footer();
