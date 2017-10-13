@@ -23,6 +23,11 @@
 				</div>
 			</div>
 		</div>
+		<div class="social-media">
+			<a href=""><img src="<?php echo get_stylesheet_directory_uri().'/img/facebook.png'?>"></a>
+			<a href=""><img src="<?php echo get_stylesheet_directory_uri().'/img/twitter.png'?>"></a>
+			<a href=""><img src="<?php echo get_stylesheet_directory_uri().'/img/instagram.png'?>"></a>
+		</div>
 	</footer>
 
 <?php wp_footer(); ?>

@@ -376,9 +376,11 @@ div{
 }
 .intro-header .site-heading h1{
 	font-size: 3.5em;
+	z-index: 2;
 }
 #header-text .site-heading .subheading{
 	font-size:1.5em;
+	z-index: 2;
 }
 .head-overlay{
 	height: 100vh;
@@ -480,7 +482,8 @@ p{
 
 /* footer */
 .footer{
-	background-color: rgb(60, 59, 59);
+	background-image: url("img/footer-back1.png");
+	background-size: 100% 100%;
 	margin-top: 30px;
 	padding: 20px;
 }
@@ -500,6 +503,54 @@ p{
 	height: 180px;
 	width: 70%;
 	padding-left: 7px;
+}
+.shadow{
+	position:absolute;
+	height: 100%;
+	top: 0;
+	width: 100%;
+	opacity: 0.6;
+	background-color: black;
+}
+/* News */
+
+.news-events{
+	padding-bottom: 8%;
+}
+.news-content{
+	background-color: black;
+	color: white;
+	opacity: 0.7;
+	padding: 0px 10px 0px 10px;
+	}
+.news-title a{
+	color: white;
+}
+.news1{
+	height: 400px;
+}
+.news2,.news3{
+	height: 195px;
+}
+.news-col{
+	padding-right: 0px;
+}
+.donation{
+	text-align: center;
+	padding-top: 100px;
+	padding-bottom: 50px;
+}
+.donation h1{
+	font-family: 'Kaushan Script', cursive;
+	font-size: 2.8em;
+}
+.social-media{
+	display: flex;
+	justify-content:center;
+}
+.social-media img{
+	margin-left: 10px;
+	cursor: pointer;
 }
 /* team */
 

@@ -24,6 +24,7 @@
 	    <div class="collapse navbar-collapse" id="myNavbar">
 			      <ul class="nav navbar-nav navbar-right">
 			        <li><a href="#">Home</a></li>
+			        <li><a href="#blogs">News/Events</a></li>
 			        <li><a href="#blogs">Blogs</a></li>
 			        <li><a href="#team">Team</a></li> 
 			        <li><a href="#contact">Contacts</a></li> 
@@ -39,19 +40,52 @@
             </div>
         </div>
 
-		</div>
+	</div>
+	<div class="shadow">
+	
+	</div>
 	</header><!-- #masthead -->
 <div id="content" class="site-content container">
 	<center><img src="<?php echo get_stylesheet_directory_uri().'/img/arrow.png'?>" class="arrow-down" id="ex-more"></center>
 	<section class="about-us">
 		<h1 class="section-heading">ABOUT US</h1>
 		<br>
-		<p> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+			<p> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker.</p>
+		</section>
+	<section class="news-events">
+      	<h1 class="section-heading">NEWS/EVENTS</h1>
+      	<br>
+      	<div class="row">
+      		<?php 
+                	$i=1;
+                    $args = array('post_type' => 'post-type-news','posts_per_page' => 3 );
+                    $loop = new WP_Query($args);
+                    if($loop->have_posts()):
+                      while ($loop->have_posts()): $loop->the_post();?>
+					<?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full' );?>
+                  	<div class="col-md-6 col-sm-6 news-col">
+	            		<div class="news news<?php echo $i?>" style="background-image:url('<?php echo $thumb["0"]?>');background-size: 100% 100%;">
+	                     	<div class="news-content">
+	                     		<h2 class="news-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+		                      	<?php the_excerpt();
+		                       	?>
+		                     </div>  
+	                    </div>
+        			</div>
+              		<?php
+              		$i++; 
+                     endwhile;
+                    endif;
+                wp_reset_postdata();
+            ?>
+      	</div>
+      	<br>  
+      	<h3 style="float:right;"><a href="">Read More</a></h3>
 	</section>
-</div>
+</div>	
 	<section class="parallex-effect">
-		
 	</section>
+
 <div class="site-content container">
 	<section class="blogs" id="blogs">
       	<h1 class="section-heading">BLOGS</h1>
@@ -116,7 +150,17 @@
 			}
 				?>
 			</div>
-	</section>	
+	</section>
+	<section class="donation">
+		<h1>Lets make the difference</h1>
+		<br>
+		<p>
+			is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to main.
+		</p>
+		<br>
+		<button class="btn-primary">Join Us</button>
+		<button class="btn-success" style="margin-left:30px;">Make Donation</button>
+	</section>
 </div>	
 <?php
 get_footer();

@@ -155,6 +155,8 @@ function odyssey_scripts() {
 	wp_enqueue_style( 'odyssey-font-open-sans', 'https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' );
 
 	wp_enqueue_style( 'odyssey-font-ubuntu', 'https://fonts.googleapis.com/css?family=Ubuntu' );
+
+	wp_enqueue_style( 'odyssey-font-kaushan', 'https://fonts.googleapis.com/css?family=Kaushan+Script' );
 	
 	wp_enqueue_script( 'odyssey-bootstrap-js', get_template_directory_uri() . '/js/bootstrap.js', array( 'jquery' ), '3.3.7', true );
 
@@ -245,7 +247,45 @@ function odyssey_site_subheading() {
 			echo '<hr class="small"><span class="subheading">' . esc_html( $subheading ) . '</span>';
 	}
 }
-
+/* Post type for news/events*/
+function create_post_type() {
+	$labels = array( 
+		'name'=>'News/Events',
+		'singular_name'=>'News/Events',
+		'add_new' => 'Add News/Events',
+		'all_items' => 'All News/Events',
+		'add_new_item'=> 'Add News/Events',
+		'new_item' => 'New News/Events',
+		'view_item' => 'View News/Events',
+		'search_item' => 'Search News/Events',
+		'not_found' =>	'no items found',
+		'not_found_in_trash' => 'not found in trash',
+		'parent_item_colon' => 'parent'	
+		);
+	$args = array(
+		'labels' => $labels,
+		'public' => true,
+		'has_archive' => true,
+		'publicaly_queryable' => true, 
+		'query_var' => true,
+		'rewrite' => true,
+		'capability_type' =>'post',
+		'heirarchical' => false,
+		'supports' => array(
+			'title',
+			'editor',
+			'thumbnail',
+			'excerpt',
+			'revisons',
+			'custom-fields',
+			),
+		'menu_position' => 5,
+		'rewrite' => array( 'slug' => 'portfolio','with_front' => false ),
+		'exclude_from_search' => false
+		);
+	register_post_type('post-type-news',$args);
+}
+add_action( 'init', 'create_post_type' );
 /**
  * Function for parallex image.
  */
